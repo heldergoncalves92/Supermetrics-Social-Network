@@ -9,7 +9,7 @@ export default function Users(): JSX.Element {
     const [users, setUsers] = useState<IUser[]>();
 
     useEffect(() => {
-        fetch(`http://${window.location.host}/api/users`)
+        fetch("/api/users")
         .then(async (res) => {
             if(res.ok) {
                 const data = await res.json() as IAPIUsersResponse;
