@@ -19,5 +19,5 @@ export function getUserInfoPageLink(userId: string): string {
 }
 
 export function getUsersPageLink(): string {
-    return `/users`;
+    return "/users";
 }
