@@ -15,9 +15,9 @@ export function createFactory<T>(defaults: T): (partial: Partial<T>) => T {
 }
 
 export function getUserInfoPageLink(userId: string): string {
-    return `http://${window.location.host}/users/${userId}`;
+    return `/users/${userId}`;
 }
 
 export function getUsersPageLink(): string {
-    return `http://${window.location.host}/users/`;
+    return "/users";
 }

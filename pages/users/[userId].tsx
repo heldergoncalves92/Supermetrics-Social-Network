@@ -19,7 +19,7 @@ export default function Users(): JSX.Element {
             return;
         }
 
-        fetch(`http://${window.location.host}/api/users/${userId}`)
+        fetch(`/api/users/${userId}`)
         .then(async (res) => {
             if(res.ok) {
                 const data = await res.json() as IAPIUserInfo;
@@ -28,7 +28,7 @@ export default function Users(): JSX.Element {
             } else {
                 if(res.status === 404) {
                     // Simulate an HTTP redirect with 'replace'
-                    window.location.replace(`http://${window.location.host}/404`);
+                    window.location.replace("/404");
                     return;
                 }
                 setMessage("Something unexpected happen");

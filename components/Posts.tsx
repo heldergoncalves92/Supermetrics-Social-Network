@@ -18,7 +18,7 @@ const Posts = ({ page }: IPostsProps): JSX.Element => {
             return;
         }
 
-        fetch(`http://${window.location.host}/api/posts/${page}`)
+        fetch(`/api/posts/${page}`)
         .then(async (res) => {
             if(res.ok) {
                 const data = await res.json() as IAPIPostsResponse;
@@ -28,7 +28,7 @@ const Posts = ({ page }: IPostsProps): JSX.Element => {
             } else {
                 if(res.status === 404) {
                     // Simulate an HTTP redirect with 'replace'
-                    window.location.replace(`http://${window.location.host}/404`);
+                    window.location.replace("/404");
                     return;
                 }
                 setMessage("Something unexpected happen");
@@ -37,7 +37,7 @@ const Posts = ({ page }: IPostsProps): JSX.Element => {
     }, [page]);
 
     function redirectToNewPage(newPage: number) {
-        window.location.assign(`http://${window.location.host}/posts/${newPage}`);
+        window.location.assign(`/posts/${newPage}`);
     }
 
     if(message) {
